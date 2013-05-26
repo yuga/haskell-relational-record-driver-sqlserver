@@ -1,0 +1,59 @@
+name:                relational-SQLServer
+version:             0.0.1.0
+synopsis:            SQL Server driver for haskell-relational-record
+description:         This package contiains a diriver of SQL Server for
+                     haskell-relational-record.
+homepage:            http://twitter.com/yuga
+license:             BSD3
+license-file:        LICENSE
+author:              Shohei Murayama
+maintainer:          shohei.murayama@gmail.com
+copyright:           Copyright (c) 2013 Shohei Murayama
+category:            Database
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  exposed-modules:
+                       Database.HDBC.Schema.SQLServer
+                       Database.Relational.Schema.SQLServer
+                       Database.Relational.Schema.SQLServerSyscat.Columns
+
+  other-modules:
+                       Database.Relational.Schema.SQLServerSyscat.IndexColumns
+                       Database.Relational.Schema.SQLServerSyscat.Indexes
+                       Database.Relational.Schema.SQLServerSyscat.Types
+
+  build-depends:         base <5
+                       , array
+                       , containers
+                       , time
+                       , sql-words
+                       , bytestring
+                       , text
+                       , convertible
+                       , template-haskell
+                       , names-th
+                       , relational-join
+                       , relational-query-HDBC
+                       , DB-record
+                       , HDBC >=2
+                       , HDBC-odbc
+                       , HDBC-session
+  hs-source-dirs:      src
+
+test-Suite sqlServer
+  build-depends:         base <5
+                       , template-haskell
+                       , HDBC-odbc
+                       , names-th
+                       , DB-record
+                       , relational-query-HDBC
+                       , relational-SQLServer
+                       , Cabal
+                       , bytestring
+                       , text
+  other-modules:         SQLServerTestDataSource
+  type:                  detailed-0.9
+  test-module:           SQLServerTest
+  hs-source-dirs:        test
