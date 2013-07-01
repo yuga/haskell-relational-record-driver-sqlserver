@@ -44,9 +44,9 @@ library
                        , relational-query-HDBC
                        , DB-record
                        , HDBC >=2
-                       , HDBC-odbc
                        , HDBC-session
   hs-source-dirs:      src
+  ghc-options:         -Wall
 
 test-Suite sqlServer
   default-language:    Haskell2010
